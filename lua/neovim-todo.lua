@@ -31,4 +31,9 @@ M.todo = function()
   vim.cmd.copen()
 end
 
+-- Setup TODO plugin
+M.setup = function(opts)
+  vim.api.nvim_create_user_command("Todo", M.todo, {})
+end
+
 return M
