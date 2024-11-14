@@ -71,10 +71,10 @@ nvim --cmd "set rtp+=<path_to_directory>" "<file_name>"
 In our case, standing in `my_plugin/`:
 
 ```bash
-nvim -c "set rtp+=." "lua/MyPlugin.lua"
+nvim -c "set rtp+=." "lua/neovim-todo.lua"
 ```
 
-Then, it is possible to call `:lua require("MyPlugin").todo()`.
+Then, it is possible to call `:lua require("neovim-todo").todo()`.
 
 **Note:** changing the plugin content and re-running the same command (without exiting Neovim) will **NOT** apply the changes, as the result of `require()` is cached.
 A trick is to use a user command:
@@ -82,7 +82,7 @@ A trick is to use a user command:
 ```lua
 vim.api.nvim_create_user_command("Test", function()
   package.loaded.MyPlugin = nil
-  require("MyPlugin").todo()
+  require("neovim-todo").todo()
 end)
 ```
 
@@ -97,10 +97,16 @@ Then, source the file containing this function (note that it is specific to our 
 > :copen "populate quickfix list with contents of the above
 > ```
 
-Plugin idea: find TODO comments using Treesitter.
+Plugin: find TODO comments using Treesitter.
 
 > _Hint: use the following Builtin Neovim commands (>=v0.10)_
 >
 > - `:Inspect`
 > - `:InspectTree`
 > - `:EditQuery`
+
+---
+
+## Resources
+
+- [Video](https://www.youtube.com/watch?v=PdaObkGazoU&ab_channel=DevOnDuty)
