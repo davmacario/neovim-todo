@@ -1,10 +1,27 @@
----
-title: Creating a Lua Neovim plugin
-author: Davide Macario
-date: 2024-11-14
+# nvim-todo
+
+Toy plugin to learn Neovim Plugin development.
+
+This plugin provides the function `:Todo`, which opens a Quickfix list containing all occurrences of `TODO` comments in the current buffer.
+
+## Installation
+
+Use your favorite package manager.
+
+**Lazy:**
+
+```lua
+{
+  "davmacario/neovim-todo",
+  config = function()
+    require("neovim-todo").setup({})
+  end
+}
+```
+
 ---
 
-## Lua function
+## Lua functions
 
 Definition:
 
@@ -47,6 +64,7 @@ Starting from an empty directory (`MyPlugin`),
 
 1. Create a `lua` directory
 2. Create a file `lua/<plugin_name>.lua`
+
    - Whatever is returned by this file will be accessible (convention is to return a table, as follows)
 
    ```lua
