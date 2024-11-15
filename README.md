@@ -99,7 +99,7 @@ A trick is to use a user command:
 
 ```lua
 vim.api.nvim_create_user_command("Test", function()
-  package.loaded.MyPlugin = nil
+  package.loaded.neovim_todo = nil
   require("neovim-todo").todo()
 end)
 ```
